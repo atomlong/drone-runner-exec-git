@@ -2,7 +2,7 @@ post_install() {
 	echo ""
 	echo "##########"
 	echo "#"
-	echo "#   Remember to configure the runner via its configuration variables under /etc/drone-runner-exec.env"
+	echo "#   Remember to configure the runner via its configuration variables under /etc/drone-runner/drone-runner-exec.ini"
 	echo "#   After that, start/enable the server via 'systemctl enable drone-runner-exec.service --now'"
 	echo "#"
 	echo "##########"
