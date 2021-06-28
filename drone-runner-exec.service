@@ -9,7 +9,7 @@ User=drone-runner-exec
 Group=drone-runner-exec
 
 # The location of the compiled binary
-ExecStart=/usr/bin/drone-runner-exec service run --config /etc/drone-runner-exec.env
+ExecStart=/usr/bin/drone-runner-exec service run --config /etc/drone-runner/drone-runner-exec.ini
 
 # Set reasonable connection and process limits
 LimitNOFILE=1048576
