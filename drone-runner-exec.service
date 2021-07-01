@@ -6,7 +6,7 @@ After=network.target
 [Service]
 # The user/group drone-runner-exec is run under. the working directory (see below) should allow write and read access to this user/group
 User=drone-runner-exec
-Group=drone-runner-exec
+Group=drone-runner
 
 # The location of the compiled binary
 ExecStart=/usr/bin/drone-runner-exec service run --config /etc/drone-runner/drone-runner-exec.ini
