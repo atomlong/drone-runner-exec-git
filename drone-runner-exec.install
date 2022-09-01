@@ -16,6 +16,7 @@ post_upgrade() {
 
 pre_remove() {
 	# Stop service
+	systemctl --quiet --no-reload stop --now drone-runner-exec.service
 	systemctl --quiet --no-reload disable --now drone-runner-exec.service
 }
 
@@ -28,4 +29,10 @@ post_remove() {
 	echo "#"
 	echo "##########"
 	echo ""
+	ps -u drone-runner-exec &>/dev/null && return 0 || {
+		getent passwd drone-runner-exec &>/dev/null && userdel drone-runner-exec >/dev/null
+		getent group drone-runner &>/dev/null && {
+			for user in $(compgen -u); do groups $user; done | grep -Eq '\bdrone-runner\b' || groupdel drone-runner >/dev/null
+		}
+	}
 }
